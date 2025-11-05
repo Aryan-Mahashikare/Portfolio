@@ -1920,3 +1920,64 @@ body.is-preload #bg:before {
   transform: scale(1.03);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
+
+/* Dimension nav widen overrides - place at the end of your stylesheet */
+
+/* make sure nav area can grow and buttons fill it */
+#menu,
+#menu .inner,
+.nav,
+nav,
+.sidebar,
+.sidebar .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* make links/buttons fill the nav horizontally and look consistent */
+#menu a,
+#menu .links a,
+#menu .actions a,
+.nav a,
+nav a,
+.sidebar a,
+.sidebar button,
+.nav .button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-align: left;
+  display: inline-block;
+}
+
+/* increase the nav container width on larger screens so buttons get more horizontal space */
+@media (min-width: 900px) {
+  /* container width — adjust 380px / 44vw as desired */
+  #menu,
+  .sidebar,
+  nav,
+  .nav {
+    width: 380px;
+    max-width: 44vw;
+    align-items: stretch;
+  }
+
+  #menu a,
+  .nav a,
+  .sidebar a {
+    font-size: 1.05rem;
+    padding: 14px 20px;
+  }
+}
+
+/* last-resort override if template uses very specific selectors or !important */
+@media (min-width: 900px) {
+  #menu a,
+  .nav a,
+  .sidebar a {
+    width: 420px !important;
+  }
+}
