@@ -95,7 +95,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #1b1f22;
+		background: #2f3b44;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -260,7 +260,7 @@ input, select, textarea {
 	}
 
 	code {
-		background: rgba(255, 255, 255, 0.075);
+		background: rgba(73, 8, 8, 0.103);
 		border-radius: 4px;
 		font-family: "Courier New", monospace;
 		font-size: 0.9rem;
@@ -1414,11 +1414,12 @@ body.is-preload #bg:before {
 }
 
 #header nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.9);
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background: rgba(0, 150, 255, 0.25); /* nice blue glow */
+  border-color: rgba(0, 150, 255, 1);
+  transform: scale(1.07);
+  box-shadow: 0 0 18px rgba(0, 150, 255, 0.5);
 }
+
 
 
 					#header nav ul li a:hover {
@@ -1599,7 +1600,10 @@ body.is-preload #bg:before {
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-			background-color: rgba(27, 31, 34, 0.85);
+			background: rgba(90, 0, 140, 0.35);
+			backdrop-filter: blur(12px);
+			border: 1px solid rgba(255, 255, 255, 0.15);
+
 			border-radius: 4px;
 			opacity: 0;
 		}
@@ -1645,7 +1649,7 @@ body.is-preload #bg:before {
 				}
 
 				#main article .close:hover:before {
-					background-color: rgba(255, 255, 255, 0.075);
+					background-color: rgba(58, 9, 9, 0.096);
 				}
 
 				#main article .close:active:before {
@@ -1865,16 +1869,16 @@ body.is-preload #bg:before {
   justify-content: center;
   height: 65px; /* taller buttons */
   width: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(0, 255, 255, 0.705);
   border-radius: 12px;
   text-decoration: none;
-  color: #fff;
+  color: #06e1e9;
   font-size: 1.1rem; /* larger text */
   letter-spacing: 1px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   transition: all 0.25s ease-in-out;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 12px rgba(8, 2, 2, 0.089);
 }
 
 #header nav ul li a:hover {
@@ -1980,4 +1984,220 @@ nav a,
   .sidebar a {
     width: 420px !important;
   }
+}
+/* Remove Dimension default nav button border */
+#header nav ul li a {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* === VICE CITY TRUE GLASS BUTTONS === */
+
+#header nav ul li a {
+  /* Glass transparency */
+  background: rgba(255, 255, 255, 0.08); /* lighter glass */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  /* Transparent interior gradient (GLASS INFUSED COLOR) */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(138, 43, 226, 0.18),   /* purple low opacity */
+      rgba(255, 45, 127, 0.18)    /* pink low opacity */
+    );
+
+  /* Neon gradient border */
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  border-image: linear-gradient(135deg, #8a2be2, #ff2d7f) 1;
+
+  /* Shape */
+  border-radius: 16px;
+  padding: 14px 22px;
+
+  /* Typography */
+  color: white;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+
+  /* Soft glow */
+  box-shadow: 0 0 22px rgba(255, 45, 127, 0.25);
+
+  transition: all 0.25s ease-in-out;
+}
+
+/* Hover — brighter neon and more glass shine */
+#header nav ul li a:hover {
+  transform: scale(1.05);
+
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(138, 43, 226, 0.26),
+      rgba(255, 45, 127, 0.26)
+    );
+
+  box-shadow:
+    0 0 28px rgba(255, 45, 127, 0.45),
+    0 0 18px rgba(138, 43, 226, 0.35);
+}
+
+/* Click effect */
+#header nav ul li a:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 15px rgba(255, 45, 127, 0.3);
+}
+/* === Neon Gradient Light Strip on Hover === */
+
+#header nav ul li a {
+  position: relative;
+  overflow: hidden; /* keeps glow contained */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 14px;
+  padding: 14px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: white;
+  letter-spacing: 1px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 22px rgba(255, 45, 127, 0.25);
+}
+
+/* Pseudo-element for neon gradient border */
+#header nav ul li a::before {
+  content: "";
+  position: absolute;
+  inset: -2px; /* sits around the button */
+  border-radius: 16px;
+
+  /* Gradient strip */
+  background: linear-gradient(135deg, #8a2be2, #ff2d7f);
+
+  /* Start hidden */
+  opacity: 0;
+  filter: blur(6px); /* softer neon look */
+
+  transition: opacity 0.35s ease, filter 0.35s ease;
+  z-index: -1; /* stays behind the glass */
+}
+
+/* Hover: light strip turns on */
+#header nav ul li a:hover::before {
+  opacity: 1;
+  filter: blur(4px);
+}
+
+/* Hover: button glows + scales */
+#header nav ul li a:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 35px rgba(255, 45, 127, 0.45),
+    0 0 22px rgba(138, 43, 226, 0.35);
+}
+/* Image pop-out hover effect */
+.image img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(184, 9, 228, 0.836);
+  z-index: 10;
+}
+/* --- Frosted Glass + Neon Gradient Buttons --- */
+
+/* Base button style (frosted purple glass) */
+#header nav ul li a {
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(134, 6, 202, 0.233); /* soft purple glass */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 14px;
+    padding: 14px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: white !important;
+    letter-spacing: 1px;
+    transition: all 0.25s ease-in-out;
+
+    box-shadow: 0 0 22px rgba(255, 45, 127, 0.25);
+}
+
+
+/* Hover: gradient strip lights up */
+#header nav ul li a:hover::before {
+    opacity: 1;
+    filter: blur(4px);
+}
+
+/* Hover: button glows + slightly scales */
+#header nav ul li a:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 35px rgba(255, 45, 127, 0.45),
+        0 0 22px rgba(138, 43, 226, 0.35);
+}
+/* --- Frosted Glass Buttons + Gradient Glass Hover --- */
+
+#header nav ul li a {
+    position: relative;
+    overflow: hidden;
+
+    /* DEFAULT: soft purple glass */
+    background: rgba(90, 0, 140, 0.30);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 14px;
+    padding: 14px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: white !important;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 18px rgba(255, 45, 127, 0.25);
+}
+
+/* HOVER: gradient frosted glass */
+#header nav ul li a:hover {
+    /* Transparent gradient glass (NOT solid) */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 0, 204, 0.28),
+        rgba(51, 51, 255, 0.28)
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 35px rgba(255, 45, 127, 0.45),
+        0 0 22px rgba(138, 43, 226, 0.35);
+}
+
+/* OPTIONAL — gradient glow border strip (your original effect) */
+#header nav ul li a::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 16px;
+
+    background: linear-gradient(135deg, #43077a, #f114af);
+    opacity: 0;
+    filter: blur(6px);
+    transition: opacity 0.35s ease, filter 0.35s ease;
+    z-index: -1;
+}
+
+#header nav ul li a:hover::before {
+    opacity: 1;
+    filter: blur(4px);
 }
